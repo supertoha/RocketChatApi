@@ -46,8 +46,6 @@ namespace RocketChat.Api
             var response = await this._client.PostAsJsonAsync($"/api/v1/chat.sendMessage", mesageRequest);
             response.EnsureSuccessStatusCode();
 
-            var debug = response.Content.ReadAsStringAsync();
-            Debug.WriteLine(debug);
             var result = await response.Content.ReadAsAsync<SendMessageResponse>();
 
             if (result.success)
